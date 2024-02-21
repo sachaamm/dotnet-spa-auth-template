@@ -20,7 +20,7 @@ PM> Update-Database
 dotnet user-secrets set "Authentication:Google:ClientId" "<client-id>"
 dotnet user-secrets set "Authentication:Google:ClientSecret" "<client-secret>"
 ```
-- Set your Facebook Login Secrets
+- Set your Facebook Login Secrets ( optional )
 https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/facebook-logins?view=aspnetcore-5.0
 
 - Set your SendGrid Api key
