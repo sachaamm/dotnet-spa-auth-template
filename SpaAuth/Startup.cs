@@ -1,11 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using SpaAuth.Data;
 using SpaAuth.Models;
 using SpaAuth.Services;
+using System;
+using WebApplication3_JWT.Util;
 
 namespace SpaAuth
 {
@@ -30,7 +30,7 @@ namespace SpaAuth
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("YourConnectionStringName")));
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
@@ -61,6 +61,8 @@ namespace SpaAuth
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            SqlConnect();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -110,6 +112,27 @@ namespace SpaAuth
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+        }
+
+        async void SqlConnect()
+        {
+            
+            try
+            {
+                SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("YourConnectionStringName"));
+                connection.Open();
+                connection.Close();
+                Logger.Success("Connected to sql server.");
+            }
+            catch (SqlException sqlException)
+            {
+
+                Logger.Error("[Error] " + sqlException.Message);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message);
+            }
         }
     }
 }
