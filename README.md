@@ -8,6 +8,8 @@ Dotnet Spa Auth Template with Identity Scaffolded
 dotnet user-secrets init
 dotnet user-secrets set ConnectionStrings:YourConnectionStringName "Data Source=YourServer;Initial Catalog=YourDatabase;User Id=YourUsername;Password=YourPassword;"
 ```
+https://www.c-sharpcorner.com/article/get-connectionstring-for-sql-server/
+
 
 - Update Database
 ```
