@@ -25,7 +25,7 @@ namespace SpaAuth.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("alexandre.amiel@service-community.com", "Password Recovery"),
+                From = new EmailAddress("sachaamm1@gmail.com", "Password Recovery"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

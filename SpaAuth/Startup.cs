@@ -14,6 +14,12 @@ using SpaAuth.Services;
 using System;
 using WebApplication3_JWT.Util;
 
+using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using SpaAuth.Services.Interface;
+
 namespace SpaAuth
 {
     public class Startup
@@ -33,6 +39,8 @@ namespace SpaAuth
                     Configuration.GetConnectionString("YourConnectionStringName")));
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<ISimpleMailerService, SimpleMailerService>();
+
             services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -134,5 +142,7 @@ namespace SpaAuth
                 Logger.Error(ex.Message);
             }
         }
+
+        
     }
 }
