@@ -25,3 +25,7 @@ https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/face
 
 - Set your SendGrid Api key
 https://docs.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-5.0&tabs=visual-studio
+
+```
+dotnet user-secrets set SendGridKey <SG.key>
+```
