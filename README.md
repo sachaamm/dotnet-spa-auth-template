@@ -3,6 +3,10 @@ Dotnet Spa Auth Template with Identity Scaffolded
 
 - Launch the App, it will install ClientApp npm packages dependencies
 
+- SetUp Database Connection
+dotnet user-secrets init
+dotnet user-secrets set ConnectionStrings:YourConnectionStringName "Data Source=YourServer;Initial Catalog=YourDatabase;User Id=YourUsername;Password=YourPassword;"
+
 - Update Database
 ```
 PM> Update-Database
