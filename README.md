@@ -1,7 +1,7 @@
 # dotnet-spa-auth-template
 Dotnet Spa Auth Template with Identity Scaffolded
 
-- Install ClientApp npm packages dependencies
+- 1. Launch the App, it will install ClientApp npm packages dependencies
 
 - Update Database
 ```
