@@ -1,7 +1,15 @@
 # dotnet-spa-auth-template
 Dotnet Spa Auth Template with Identity Scaffolded
 
-- Install ClientApp npm packages dependencies
+- Launch the App, it will install ClientApp npm packages dependencies
+
+- SetUp Database Connection
+```
+dotnet user-secrets init
+dotnet user-secrets set ConnectionStrings:YourConnectionStringName "YOUR CONNECTION STRING GOES HERE"
+```
+https://www.c-sharpcorner.com/article/get-connectionstring-for-sql-server/
+
 
 - Update Database
 ```
